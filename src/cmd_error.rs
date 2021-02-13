@@ -1,7 +1,7 @@
 use serenity::{
     builder::CreateEmbed,
     client::Context,
-    framework::standard::{macros::hook, DispatchError, Reason},
+    framework::standard::{DispatchError, macros::hook, Reason},
     model::channel::Message,
 };
 

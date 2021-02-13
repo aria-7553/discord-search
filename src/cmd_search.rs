@@ -1,12 +1,13 @@
-use crate::{log, send_embed};
 use once_cell::sync::OnceCell;
 use serenity::{
     builder::{CreateEmbed, CreateEmbedAuthor},
     client::Context,
-    framework::standard::{macros::command, Args, CommandResult},
+    framework::standard::{Args, CommandResult, macros::command},
     model::channel::Message,
 };
 use url::Url;
+
+use crate::{log, send_embed};
 
 static GOOGLE: OnceCell<(CreateEmbedAuthor, Url, &'static str)> = OnceCell::new();
 static IMAGE: OnceCell<(CreateEmbedAuthor, Url, &'static str)> = OnceCell::new();

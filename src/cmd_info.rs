@@ -1,12 +1,15 @@
 use serenity::{
     builder::CreateEmbed,
     client::Context,
-    framework::standard::{macros::command, CommandResult},
+    framework::standard::{CommandResult, macros::command},
     model::channel::Message,
     prelude::Mentionable,
 };
 
-use crate::{globals::{BotConfig, BotInfo}, log, send_embed};
+use crate::{
+    globals::{BotConfig, BotInfo},
+    log, send_embed,
+};
 
 #[command("info")]
 #[aliases("about", "invite", "inv")]
@@ -26,7 +29,7 @@ async fn cmd_info(ctx: &Context, msg: &Message) -> CommandResult {
                 .field("Made by:", info.owner().mention(), true);
         }
         None => {
-            log(ctx, "Couln't get BotInfo for the `info` command").await;
+            log(ctx, "Couldn't get BotInfo for the `info` command").await;
             embed.description("Awkward but I think I forgot who I am..");
             is_error = true
         }

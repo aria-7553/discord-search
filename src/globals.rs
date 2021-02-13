@@ -1,18 +1,19 @@
+use std::{convert::TryFrom, fs, io};
+
 use once_cell::sync::OnceCell;
 use serde::Deserialize;
 use serenity::{http::client::Http, model::id::UserId, prelude::TypeMapKey};
 use sqlx::{query, sqlite::SqliteConnectOptions, SqlitePool};
-use std::{convert::TryFrom, fs, io};
 
 const DEFAULT_CONFIG: &'static str =
     "# The token of the bot: https://discordpy.readthedocs.io/en/latest/discord.html#creating-a-bot-account
 token = \"TOKEN HERE\"
 
 # The name of the file for logging stuff if it couldn't DM you
-log_file = \"logs.txt\"
+log_file = \"search-logs.txt\"
 
-# The name of the file to use for database. Should end with: .sqlite, .sqlite3, .db or .db3
-database_file = \"database.sqlite\"
+# The name of the file to use for the database. Should end with: .sqlite, .sqlite3, .db or .db3
+database_file = \"search-database.sqlite\"
 
 # The invite link for the bot: https://discordpy.readthedocs.io/en/latest/discord.html#inviting-your-bot
 invite = \"https://discord.com/api/oauth2/THE REST OF THE LINK HERE\"

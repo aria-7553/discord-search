@@ -15,9 +15,10 @@ IDK if I'll ever add this one
 
 ## Use it
 1. Click on the file you downloaded *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
-2. It'll create the config file called `search-config.toml`, you can find how to edit it in the file
+2. It'll create the config file called `search-config.toml` where the app is *(If it isn't there, read the stuff in the window to see the errors)*
+3. Edit it with your text editor *(Notepad, TextEdit etc.)* *(Instructions are inside)*
 3. Go to [the application page](https://discord.com/developers/applications), select your bot and set the description. The `info` command will use that and the account that has that application
-4. Click on the file again to run it. It'll open in a terminal
+4. Click on the file again to run it. It'll open in a terminal, close it and the app shuts down
 
 ### How to build it (If you can't find your platform in [releases](/releases/latest))
 On Windows, this requires about 6GB of download, *because Microsoft..*  
@@ -26,7 +27,7 @@ On other platforms though, it takes about 5 minutes
 2. Clone this repository
 3. Open your terminal and `cd` into to the directory with `Cargo.toml` in it
 4. Type `cargo build --release` in the terminal
-5. You'll find `discord-search.exe` (or the executable file for your OS) in the same directory
+5. You'll find the `discord-search` executable in the same directory
 6. *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
 
 ## What it does
@@ -65,7 +66,7 @@ All these don't have a prefix so they're run with `@bot [command]`. You set your
 - Suggests similar commands if `help [command]` is.. similar to another command
 
 #### Info command
-- An `info` command that gets the desciption and owner from [the application page](https://discord.com/developers/applications) and the GitHub page and invite link from the config file
+- An `info` command that gets the description and owner from [the application page](https://discord.com/developers/applications) and the GitHub page and invite link from the config file
 
 #### Prefix command
 - A `prefix` command that sets the prefix for the guild, which works for every command in addition to `@bot` and the prefixes you set for your groups
@@ -80,7 +81,7 @@ All these don't have a prefix so they're run with `@bot [command]`. You set your
 - Also adding buckets and rate limit handling to ensure it isn't abused
 - Combined with Rust's and SQLite's performance, the bot should be really lightweight
 
-*I can't say fast because we'll be bottlenecked by Discord anyway. It's still definitely fast enough that the user won't notice at all*
+*I can't say fast because we'll be bottlenecked by Discord anyway. It's still as light fast and fast as it can be*
 
 ### Error handling
 Everything that's done follows these principals:
@@ -105,9 +106,12 @@ License and stuff I don't care, neither should you but contact me if you want to
 
 
 ## Ideas I had but decided not to implement
+
 ### Handling permissions
 Too expensive, limited, bad for UX, unnecessary and inconsistent. Doing proper error checking and informing the user on an error is just a better option
+
 ### Localisation
 Makes everything more expensive, you now have to check the language for every message you're sending, which means you can't use any static string. Community translation will always be inconsistent, slow and incomplete. Most users wouldn't expect or use it. Having separate bots for each language is just a better option
+
 ### Customisation
 Again makes everything more expensive, since it means you can't use any static string. If someone is hosting the bot, they most likely have enough knowledge to search for a string in the source and replace it then build. It isn't necessary at all and I still tried to include customisation when it didn't mean a performance loss

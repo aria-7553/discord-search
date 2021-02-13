@@ -1,9 +1,13 @@
-pub mod cmd_error;
-pub mod cmd_help;
-pub mod cmd_info;
-pub mod cmd_prefix;
-pub mod cmd_search;
-pub mod globals;
+use std::{env, fmt::Display, io::Write};
+
+use serenity::{
+    builder::CreateEmbed,
+    client::{Context, EventHandler},
+    framework::standard::macros::group,
+    model::{channel::Message, id::GuildId, misc::Mentionable, prelude::Activity},
+};
+
+use globals::{BotConfig, BotInfo};
 
 use crate::{
     cmd_info::CMD_INFO_COMMAND,
@@ -12,14 +16,13 @@ use crate::{
         CMD_DICTIONARY_COMMAND, CMD_GOOGLE_COMMAND, CMD_IMAGE_COMMAND, CMD_URBAN_COMMAND,
     },
 };
-use globals::{BotConfig, BotInfo};
-use serenity::{
-    builder::CreateEmbed,
-    client::{Context, EventHandler},
-    framework::standard::macros::group,
-    model::{channel::Message, id::GuildId, misc::Mentionable, prelude::Activity},
-};
-use std::{fmt::Display, io::Write};
+
+pub mod cmd_error;
+pub mod cmd_help;
+pub mod cmd_info;
+pub mod cmd_prefix;
+pub mod cmd_search;
+pub mod globals;
 
 #[group("Master")]
 #[sub_groups(General, Search)]
@@ -150,5 +153,26 @@ pub fn print_and_write(msg: impl Display) {
             }
         }
         Err(err) => println!("Couldn't open or create the log file: {}", err),
+    }
+}
+
+pub fn set_dir() {
+    match env::current_exe() {
+        Ok(path) => match path.parent() {
+            Some(parent) => {
+                if let Err(err) = env::set_current_dir(parent) {
+                    println!("Couldn't change the current directory: {}", err);
+                }
+            }
+            None => println!("Couldn't get the directory of the exe"),
+        },
+        Err(err) => println!("Couldn't get the location of the exe: {}", err),
+    }
+    match env::current_dir() {
+        Ok(dir) => println!(
+            "All the files and all will be put in or read from: {}",
+            dir.display()
+        ),
+        Err(err) => println!("Couldn't even get the current directory: {}", err),
     }
 }

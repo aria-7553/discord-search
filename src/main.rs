@@ -1,4 +1,8 @@
-use std::env;
+use serenity::{
+    client::bridge::gateway::GatewayIntents,
+    framework::{standard::buckets::LimitedFor, StandardFramework},
+    Client,
+};
 
 use discord_search::{
     cmd_error,
@@ -6,28 +10,12 @@ use discord_search::{
     cmd_prefix::prefix_check,
     cmd_search,
     globals::{set_db, BotConfig, BotInfo, CmdInfo, SqlitePoolKey},
-    print_and_write, Handler, GENERAL_GROUP, MASTER_GROUP, SEARCH_GROUP,
-};
-use serenity::{
-    client::bridge::gateway::GatewayIntents,
-    framework::{standard::buckets::LimitedFor, StandardFramework},
-    Client,
+    print_and_write, set_dir, Handler, GENERAL_GROUP, MASTER_GROUP, SEARCH_GROUP,
 };
 
 #[tokio::main]
 async fn main() {
-    match env::current_exe() {
-        Ok(path) => {
-            if let Err(err) = env::set_current_dir(path.parent()) {
-                println!("Couldn't change the current directory: {}", err);
-            }
-        }
-        Err(err) => println!("Couldn't get the directory of the exe: {}", err),
-    }
-    match env::current_dir() {
-        Ok(dir) => println!("All the files and all will be put in or read from: {}", dir.display()),
-        Err(err) => println!("Couldn't even get the current directory: {}", err),
-    }
+    set_dir();
 
     cmd_search::set_sites();
 
