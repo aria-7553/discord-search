@@ -7,11 +7,11 @@ Made with love using [Serenity](https://github.com/serenity-rs/serenity) in Rust
 *(Your OS may tell you that it's insecure. That's the case for most non-popular open source projects. If you're still skeptical you can build it from the source)*
 
 ### Windows
-I'll add it soon™
+https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-windows.exe
 ### macOS
-This one too
+https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-macos
 ### Linux
-IDK if I'll ever add this one  
+https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-linux
 
 ## Use it
 1. Click on the file you downloaded *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
