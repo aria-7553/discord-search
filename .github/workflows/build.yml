@@ -5,6 +5,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -16,5 +17,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/create-release@v1
+      with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: Actions build
+          draft: true
+          prerelease: false
     - name: Build on ${{ matrix.os }}
-      run: cargo build --verbose
+      run: cargo build --release
