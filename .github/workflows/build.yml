@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: Checkout code
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: Build ${{ github.ref }} on ${{ matrix.os }}
       run: |
         cargo build --release
