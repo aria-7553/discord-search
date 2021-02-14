@@ -4,7 +4,7 @@ Made with love using [Serenity](https://github.com/serenity-rs/serenity) in Rust
 
 ## Download it
 
-*(Your OS may tell you that it's insecure. That's the case for most non-popular open source projects. If you're still skeptical you can build it from the source)*
+*(Your OS may tell you that it's insecure. That's the case for most non-popular open source projects. If you're still sceptical you can build it from the source)*
 
 ### Windows
 https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-windows.exe
