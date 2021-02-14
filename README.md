@@ -6,11 +6,11 @@ Made with love using [Serenity](https://github.com/serenity-rs/serenity) in Rust
 
 *(Your OS may tell you that it's insecure. That's the case for most non-popular open source projects. If you're still sceptical you can build it from the source)*
 
-### Windows
+### Windows 64-bit
 https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-windows.exe
-### macOS
+### macOS 64-bit
 https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-macos
-### Linux
+### Linux 64-bit
 https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-linux
 
 ## Use it
