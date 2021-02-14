@@ -20,7 +20,7 @@ https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-sear
 3. Go to [the application page](https://discord.com/developers/applications), select your bot and set the description. The `info` command will use that and the account that has that application
 4. Click on the file again to run it. It'll open in a terminal, close it and the app shuts down
 
-### How to build it (If you can't find your platform at [the Download it section](#download-it)
+### How to build it (If you can't find your platform at [the Download it section](#download-it))
 On Windows, this requires about 6GB of download, *because Microsoft..*  
 On other platforms though, it takes about 5 minutes
 1. Install Rust from [here](https://www.rust-lang.org/tools/install)
