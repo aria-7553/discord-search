@@ -14,7 +14,7 @@ https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-sear
 https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-linux
 
 ## Use it
-1. Click on the file you downloaded *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
+1. Click on the file you downloaded or `cd` into its directory and type `./discord-search-...` *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
 2. It'll create the config file called `search-config.toml` where the app is *(If it isn't there, read the stuff in the window to see the errors)*
 3. Edit it with your text editor *(Notepad, TextEdit etc.)* *(Instructions are inside)*
 3. Go to [the application page](https://discord.com/developers/applications), select your bot and set the description. The `info` command will use that and the account that has that application
