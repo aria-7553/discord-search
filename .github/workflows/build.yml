@@ -1,11 +1,7 @@
 name: Upload Release
 
 on:
-  push:
-    tags:
-    - 'v*'
   workflow_dispatch:
-
 
 jobs:
   windows-build:
@@ -13,19 +9,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Build ${{ github.ref }} on macOS
-      run: |
-        cargo build --release
-        cd target/release/
-        rename ${{ github.event.repository.name }}.exe ${{ github.event.repository.name }}-windows-64-bit.exe
+    - name: Build
+      run: cargo build --release
+    - name: cd
+      run: cd target/release/
+    - name: rename
+      run: rename ${{ github.event.repository.name }}.exe ${{ github.event.repository.name }}-windows-64-bit.exe
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }} Windows 64-bit
+        release_name: Windows 64-bit
         draft: false
         prerelease: false
     - name: Upload Release Asset
@@ -44,19 +40,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Build ${{ github.ref }} on macOS
-      run: |
-        cargo build --release
-        cd target/release/
-        mv ${{ github.event.repository.name }} ${{ github.event.repository.name }}-macos-64-bit
+    - name: Build
+      run: cargo build --release
+    - name: cd
+      run: target/release/
+    - name: rename
+      run: mv ${{ github.event.repository.name }} ${{ github.event.repository.name }}-macos-64-bit
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }} macOS 64-bit
+        release_name: macOS 64-bit
         draft: false
         prerelease: false
     - name: Upload Release Asset
@@ -75,19 +71,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Build ${{ github.ref }} on macOS
-      run: |
-        cargo build --release
-        cd target/release/
-        mv ${{ github.event.repository.name }} ${{ github.event.repository.name }}-linux-64-bit
+    - name: Build
+      run: cargo build --release
+    - name: cd
+      run: cd target/release/
+    - name: rename
+      run: mv ${{ github.event.repository.name }} ${{ github.event.repository.name }}-linux-64-bit
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }} Linux 64-bit
+        release_name: Linux 64-bit
         draft: false
         prerelease: false
     - name: Upload Release Asset
