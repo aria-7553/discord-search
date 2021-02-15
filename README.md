@@ -14,21 +14,24 @@ https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-sear
 https://github.com/aria-7553/discord-search/releases/download/1.0.0/discord-search-linux
 
 ## Use it
-1. Click on the file you downloaded or `cd` into its directory and type `./discord-search-...` *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
-2. It'll create the config file called `search-config.toml` where the app is *(If it isn't there, read the stuff in the window to see the errors)*
-3. Edit it with your text editor *(Notepad, TextEdit etc.)* *(Instructions are inside)*
+1. Click on the file you downloaded from [the Download it section](#download-it) or `cd` into its directory and type its name *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
+2. It'll create the config file ending with `config.toml` where the file is *(If it isn't there, read the stuff in the window to see the errors)*
+3. Edit it with your text editor *(Notepad, TextEdit, nano etc.)* *(Instructions are inside)*
 3. Go to [the application page](https://discord.com/developers/applications), select your bot and set the description. The `info` command will use that and the account that has that application
-4. Click on the file again to run it. It'll open in a terminal, close it and the app shuts down
+4. Click on the file again to run it. It'll open in a terminal, close it and the bot shuts down
 
 ### How to build it (If you can't find your platform at [the Download it section](#download-it))
 On Windows, this requires about 6GB of download, *because Microsoft..*  
 On other platforms though, it takes about 5 minutes
-1. Install Rust from [here](https://www.rust-lang.org/tools/install)
-2. Clone this repository
-3. Open your terminal and `cd` into to the directory with `Cargo.toml` in it
+1. Follow the instructions [here](https://www.rust-lang.org/tools/install) to install Rust
+- On Windows, follow the instructions in the window that opens
+- On Linux, install required tools from [here](https://ostechnix.com/install-development-tools-linux/)
+2. Clone this repository (Download all the files into a folder)
+3. Open your terminal and `cd` into to the folder with `Cargo.toml` in it
 4. Type `cargo build --release` in the terminal
-5. You'll find the `discord-search` executable in the same directory
-6. *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
+5. Wait for a message starting with `Finished`
+6. You'll find the executable in `target/release/`
+7. *(On macOS and Linux you might have to [make the file executable](https://support.apple.com/en-nz/guide/terminal/apdd100908f-06b3-4e63-8a87-32e71241bab4/2.11/mac/11.0))*
 
 ## What it does
 
