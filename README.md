@@ -1,5 +1,5 @@
 # discord-search
-A minimalist Discord bot to search Google, Google Images, Wiktionary and Urban  
+A minimalist Discord bot to search Google, Google Images, Wiktionary and Urban Dictionary  
 Made with love using [Serenity](https://github.com/serenity-rs/serenity) in Rust!
 
 ## Download it
