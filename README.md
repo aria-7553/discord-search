@@ -1,4 +1,6 @@
 # discord-search
+[![](https://img.shields.io/static/v1?color=f48fb1&labelColor=f48fb1&label=discord&message=join&logo=discord&logoColor=ffffff&style=for-the-badge)](https://discord.gg/u6NyRUnNED)  
+
 A minimalist Discord bot to search Google, Google Images, Wiktionary and Urban Dictionary  
 Made with love using [Serenity](https://github.com/serenity-rs/serenity) in Rust!
 
