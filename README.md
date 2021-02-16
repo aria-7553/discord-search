@@ -1,5 +1,6 @@
 # discord-search
-[![](https://img.shields.io/static/v1?color=f48fb1&labelColor=f48fb1&label=discord&message=join&logo=discord&logoColor=ffffff&style=for-the-badge)](https://discord.gg/u6NyRUnNED)  
+[![](https://img.shields.io/static/v1?color=f48fb1&labelColor=f48fb1&label=discord&message=add%20to%20your%20server&logo=discord&logoColor=ffffff&style=for-the-badge)](https://discord.com/api/oauth2/authorize?client_id=752582273706098699&permissions=117824&scope=bot)  
+[![](https://img.shields.io/static/v1?color=f48fb1&labelColor=f48fb1&label=discord‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎&message=join%20my%20server&logo=discord&logoColor=ffffff&style=for-the-badge)](https://discord.gg/u6NyRUnNED)  
 
 A minimalist Discord bot to search Google, Google Images, Wiktionary and Urban Dictionary  
 Made with love using [Serenity](https://github.com/serenity-rs/serenity) in Rust!
