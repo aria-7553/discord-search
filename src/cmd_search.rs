@@ -2,7 +2,7 @@ use once_cell::sync::OnceCell;
 use serenity::{
     builder::{CreateEmbed, CreateEmbedAuthor},
     client::Context,
-    framework::standard::{Args, CommandResult, macros::command},
+    framework::standard::{macros::command, Args, CommandResult},
     model::channel::Message,
 };
 use url::Url;
@@ -96,14 +96,7 @@ async fn get_search_embed(
 
     match target {
         Some((author, url)) => {
-            embed
-                .description(url.as_str())
-                .set_author(author.clone())
-                .footer(|f| {
-                    f.text(
-                        "Sorry it's ugly like that.. Otherwise Discord will annoy you with pop-ups",
-                    )
-                });
+            embed.description(url.as_str()).set_author(author.clone());
             (embed, false)
         }
         None => {
