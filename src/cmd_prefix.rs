@@ -1,5 +1,3 @@
-use std::cmp::min;
-
 use serenity::{
     builder::CreateEmbed,
     client::Context,
@@ -93,13 +91,13 @@ async fn cmd_prefix(ctx: &Context, msg: &Message, args: Args) -> CommandResult {
 pub async fn prefix_check(ctx: &Context, msg: &Message) -> Option<String> {
     let guild_id = msg.guild_id?;
     let cmd_info = CmdInfo::get()?;
-    let boundary = min(msg.content.chars().count(), cmd_info.longest_len().into());
+    let content = msg.content.as_str();
 
     let mut is_cmd = false;
     for cmd in cmd_info.cmds().iter() {
-        if msg.content[..boundary].contains(cmd) {
+        if content.contains(cmd) {
             is_cmd = true;
-            if msg.content.starts_with(".") && cmd_info.custom_cmds().contains(cmd) {
+            if content.starts_with(".") && cmd_info.custom_cmds().contains(cmd) {
                 return Some(".".to_string());
             }
         }
