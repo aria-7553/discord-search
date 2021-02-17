@@ -24,7 +24,7 @@ use serenity::{
 #[dm_only_text = "My DMs only 😳"]
 #[guild_only_text = "Guilds only"]
 #[dm_and_guild_text = "Both guilds and DMs"]
-#[individual_command_tip = "Want me to explain a command? Type `help [command name]`"]
+#[individual_command_tip = "Want me to explain a command? Type `help [command name]`\nYou can use `.` as the prefix if the command isn't in `General Stuff`"]
 #[strikethrough_commands_tip_in_dm = ""]
 #[strikethrough_commands_tip_in_guild = ""]
 #[lacking_role = "Nothing"]
