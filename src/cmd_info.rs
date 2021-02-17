@@ -1,7 +1,7 @@
 use serenity::{
     builder::CreateEmbed,
     client::Context,
-    framework::standard::{CommandResult, macros::command},
+    framework::standard::{macros::command, CommandResult},
     model::channel::Message,
     prelude::Mentionable,
 };
@@ -14,7 +14,7 @@ use crate::{
 #[command("info")]
 #[aliases("about", "invite", "inv")]
 #[bucket = "general"]
-#[description = "How you can add me to your server, contact my owner, my GitHub page etc."]
+#[description = "How you can add me to your server, contact my owner, find my GitHub page etc."]
 async fn cmd_info(ctx: &Context, msg: &Message) -> CommandResult {
     let mut embed = CreateEmbed::default();
     embed.footer(|f| {

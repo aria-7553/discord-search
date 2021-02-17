@@ -4,7 +4,12 @@ use serenity::{
     builder::CreateEmbed,
     client::{Context, EventHandler},
     framework::standard::macros::group,
-    model::{channel::Message, id::GuildId, misc::Mentionable, prelude::Activity},
+    model::{
+        channel::Message,
+        id::GuildId,
+        misc::Mentionable,
+        prelude::{Activity, Ready},
+    },
 };
 
 use globals::{BotConfig, BotInfo};
@@ -40,18 +45,29 @@ struct Search;
 pub struct Handler;
 #[serenity::async_trait]
 impl EventHandler for Handler {
-    async fn cache_ready(&self, ctx: Context, _: Vec<GuildId>) {
+    async fn ready(&self, ctx: Context, info: Ready) {
         ctx.set_activity(Activity::playing(
-            format!(
-                "@{} help",
-                BotInfo::get().expect("Couldn't get BotInfo").name()
-            )
-            .as_str(),
+            format!("@{} help", info.user.name).as_str(),
         ))
         .await;
+    }
 
-        println!("Connected!");
-        log(&ctx, &String::from("Connected!")).await;
+    async fn cache_ready(&self, ctx: Context, guilds: Vec<GuildId>) {
+        if let Some(config) = BotConfig::get() {
+            if config.log_guild_added() {
+                let msg = format!("In {} guilds!", guilds.len());
+                println!("{}", msg);
+                log(&ctx, msg).await;
+            }
+        } else {
+            {
+                log(
+                    &ctx,
+                    "Couldn't get BotConfig to see if guild adds should be added",
+                )
+                .await
+            }
+        }
     }
 }
 

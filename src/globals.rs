@@ -12,6 +12,9 @@ token = \"TOKEN HERE\"
 # The name of the file for logging stuff if it couldn't DM you
 log_file = \"search-logs.txt\"
 
+# If the bot should DM you when it's added to a guild: Must be either \"true\" or \"false\"!
+log_guild_added = true
+
 # The name of the file to use for the database. Should end with: .sqlite, .sqlite3, .db or .db3
 database_file = \"search-database.sqlite\"
 
@@ -59,6 +62,7 @@ pub async fn set_db() -> SqlitePool {
 pub struct BotConfig {
     token: String,
     log_file: String,
+    log_guild_added: bool,
     database_file: String,
     invite: String,
     github: String,
@@ -98,6 +102,9 @@ impl BotConfig {
     pub fn log_file(&self) -> &String {
         &self.log_file
     }
+    pub fn log_guild_added(&self) -> bool {
+        self.log_guild_added
+    }
     pub fn invite(&self) -> &String {
         &self.invite
     }
@@ -124,7 +131,7 @@ impl BotInfo {
         let app_info = http
             .get_current_application_info()
             .await
-            .expect("Couldn't get application info:");
+            .expect("Couldn't get application info");
         let name = http
             .get_current_user()
             .await
