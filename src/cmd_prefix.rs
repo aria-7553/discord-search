@@ -97,7 +97,6 @@ pub async fn prefix_check(ctx: &Context, msg: &Message) -> Option<String> {
     for cmd in cmd_info.cmds().iter() {
         if content.contains(cmd) {
             if content.starts_with(".") && cmd_info.custom_cmds().contains(cmd) {
-                println!("{:?}", cmd_info.custom_cmds());
                 return Some(".".to_string());
             }
             is_cmd = true;
@@ -135,7 +134,6 @@ pub async fn prefix_check(ctx: &Context, msg: &Message) -> Option<String> {
         }
         Ok(row) => match row?.try_get(0) {
             Ok(prefix) => {
-                println!("{:?}", prefix);
                 prefix
             }
             Err(err) => {
