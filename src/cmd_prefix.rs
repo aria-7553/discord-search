@@ -96,10 +96,12 @@ pub async fn prefix_check(ctx: &Context, msg: &Message) -> Option<String> {
     let mut is_cmd = false;
     for cmd in cmd_info.cmds().iter() {
         if content.contains(cmd) {
-            is_cmd = true;
             if content.starts_with(".") && cmd_info.custom_cmds().contains(cmd) {
+                println!("{:?}", cmd_info.custom_cmds());
                 return Some(".".to_string());
             }
+            is_cmd = true;
+            break;
         }
     }
     if !is_cmd {
@@ -132,7 +134,10 @@ pub async fn prefix_check(ctx: &Context, msg: &Message) -> Option<String> {
             None
         }
         Ok(row) => match row?.try_get(0) {
-            Ok(prefix) => prefix,
+            Ok(prefix) => {
+                println!("{:?}", prefix);
+                prefix
+            }
             Err(err) => {
                 log(
                     ctx,

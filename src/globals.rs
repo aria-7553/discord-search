@@ -183,10 +183,10 @@ impl CmdInfo {
 
         for group in crate::MASTER_GROUP.options.sub_groups.iter() {
             let group_cmds = group.options.commands.iter().flat_map(|c| c.options.names);
-            &cmds.extend(group_cmds);
             if group.name != "General Stuff" {
-                custom_cmds.extend(&cmds)
+                custom_cmds.extend(group_cmds.clone())
             }
+            cmds.extend(group_cmds);
         }
 
         let longest_len = u8::try_from(
