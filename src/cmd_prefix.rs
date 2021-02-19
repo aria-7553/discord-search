@@ -133,9 +133,7 @@ pub async fn prefix_check(ctx: &Context, msg: &Message) -> Option<String> {
             None
         }
         Ok(row) => match row?.try_get(0) {
-            Ok(prefix) => {
-                prefix
-            }
+            Ok(prefix) => prefix,
             Err(err) => {
                 log(
                     ctx,
